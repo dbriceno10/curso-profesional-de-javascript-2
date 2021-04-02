@@ -1,0 +1,131 @@
+Closures
+‌
+
+Junto a scope cuando lo combinamos con function podemos crear algo que se llama closure. Para entenderlo veamos un ejemplo:
+
+‌
+
+Agreguemos este archivo a la carpeta de ejercicios:
+
+Closure.html
+
+‌
+
+Tenemos la variable color disponible globalmente. Para evitar que sea global vamos a crear una función que se va a llamar automáticamente. Esto se logra con IIFE(Immediately-invoked function expressions), es una función que se llama de la siguiente manera: (function(){})().
+
+(function() {
+        let color = "green";
+
+        function printColor() {
+          console.log(color);
+        }
+
+        printColor();
+      })();
+Al hacer esto ya la variable color no estará en un ámbito global sino funcional. Cuando combinamos un scope con una función sucede esto que ya hicimos, el famoso clousure. La función que se encuentra en su interior puede acceder a la variable.
+
+‌
+
+Segundo ejemplo
+‌
+
+Vamos a crear una maquina que imprima colores en la consola. Vamos a hacer una función que nos devuelva otra función.
+
+function makeColorPrinter(params) {
+        let colorMessage = `The color is ${params}`;
+
+        return function() {
+          console.log(colorMessage);
+        };
+      }
+
+      let greenColorPrinter = makeColorPrinter("green");
+      console.log(greenColorPrinter());
+‌
+
+Acá pasa algo interesante, la función que está dentro de makeColorPrinter() recuerda el valor de colorMessage aún cuando es llamado en la variable greenColorPrinter, está afuera de su scope pero aún lo recuerda. A esto se le llama closure, una funcionalidad que el lenguaje no trae por sí solo, logramos que se memorizara el scope. El feature que creamos se llama variables privadas.
+
+‌
+
+Variables privadas
+‌
+
+Supongamos que tenemos el siguiente código que crea un contador.
+
+const counter = {
+        count: 3
+      }
+
+      console.log(counter.count);
+‌
+
+No queremos que .log pueda leer nuestra variable, ¿cómo la hacemos privada? Para eso tenemos que crear una función.
+
+‌
+
+    return {
+      increase: function() {},
+      decrease: function() {},
+      getCount: function() {}
+    };
+  }
+  let counter = makeCounter(5)
+‌
+
+¿Qué sucede acá? Ahora tenemos una variable privada por que si accedemos a counter.count no nos dará ningún valor, si usamos console.log(counter.count) no nos arrojará nada, pero sí tenemos las tres funciones declaradas disponibles; increase; decrease; getCount. Para acceder al valor de count lo tenemos que hacer usando la función getCount que sí tenemos disponible. Podemos hacer lo siguiente:
+
+getCount:  function()  {
+	 return count;
+}
+‌
+
+Ahora si usamos console.log(counter.getCount()) sí nos dará el valor de la variable privada. ¡Sorprendente!
+
+‌
+
+Si no queremos que nuestra variable sea reescrita podemos usar la variable privada usando funciones.
+
+‌
+
+Sigamos implementando
+‌
+
+Terminemos de acomodar nuestra función para agregarles las funcionalidad; decrease; increase.
+
+function makeCounter(n) {
+        let count = n;
+
+        return {
+          increase: function() {
+            count = count + 1;
+          },
+          decrease: function() {
+            count = count - 1;
+          },
+          getCount: function() {
+            return count;
+          }
+        };
+      }
+      let counter = makeCounter(5);
+Ahora si podemos sumar y restar la variable usando nuestras nuevas funciones:
+
+console.log(counter.getCount()); // 5
+      counter.increase()
+      counter.increase()
+      counter.increase()
+console.log(counter.getCount()); // 8
+      counter.decrease()
+      counter.decrease()
+      counter.decrease()
+      counter.decrease()
+console.log(counter.getCount()); // 4
+‌
+
+Pero si queremos cambiar el valor con counter.count = 10 no lo vamos a lograr.
+
+counter.count = 10 // No pasa nada
+
+‌
+
+El valor de la variable privada no se puede acceder directamente ni alterar directamente, se puede lograr mediante algunas funciones.

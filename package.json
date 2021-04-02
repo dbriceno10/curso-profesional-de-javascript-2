@@ -1,0 +1,27 @@
+{
+  "name": "proyecto-curso-profesional-javascript",
+  "version": "1.0.0",
+  "description": "Proyecto y clases de curso profesional de javascrit de platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbriceno10/Proyecto-curso-profesinonal-de-javascript.git"
+  },
+  "author": "Daniel Briceño <daniel.b100726@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbriceno10/Proyecto-curso-profesinonal-de-javascript/issues"
+  },
+  "homepage": "https://github.com/dbriceno10/Proyecto-curso-profesinonal-de-javascript#readme",
+  "devDependencies": {
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "babel-jest": "^26.6.3",
+    "jest": "^26.6.3",
+    "live-server": "^1.2.1"
+  }
+}
