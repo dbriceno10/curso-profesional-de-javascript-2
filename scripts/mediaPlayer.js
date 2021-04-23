@@ -1,4 +1,4 @@
-// button.onclick = () => video.play();
+ // button.onclick = () => video.play();
 //video.play(); solamente es una mala práctica, no se debe hacer que el video se reproduzca de forma automática
 
 
@@ -29,9 +29,20 @@ mediaPlayer.prototype.togglePlay = function() {
 }
 
 mediaPlayer.prototype.initPlugins = function() {
+    const player = {
+        play: () => this.play(),
+        pause: () => this.pause(),
+        media: this.media,
+        get muted() {
+            return this.media.muted
+        },
+        set muted(value) {
+            this.media.muted = value
+        }
+    }
     this.plugins.forEach(plugins => {
         plugins.run(this);
-    })
+    });
 }
 
 mediaPlayer.prototype.unmute = function() {
