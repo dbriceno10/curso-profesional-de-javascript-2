@@ -3,7 +3,7 @@
 
 
 function mediaPlayer(configurar) {//Media player, aunque esté declarada como una función en realidad es una clase, esta va a contener los métodos de la clase mediaPlayer
-    this.miVid = configurar.parametro
+    this.media = configurar.parametro
     this.plugins = configurar.plugins || [];//En el array vació vamos a pasar todos nuestros plugins, o carácterísticas nuevas que vamos a estar añadiendo al programa
     this.initPlugins();
 }
@@ -11,20 +11,20 @@ function mediaPlayer(configurar) {//Media player, aunque esté declarada como un
 
 mediaPlayer.prototype.play = function() {
     //video.play();//Aquí el video está embebido en la clase y eso no es práctico ni reutilizable
-    this.miVid.play();
+    this.media.play();
 }
 //const player = new mediaPlayer();
 
 
 mediaPlayer.prototype.pause = function() {
-    this.miVid.pause();
+    this.media.pause();
 }
 
 mediaPlayer.prototype.togglePlay = function() {
-    if (this.miVid.paused) {
-        this.miVid.play();
+    if (this.media.paused) {
+        this.media.play();
     } else {
-        this.miVid.pause();
+        this.media.pause();
     }
 }
 
@@ -46,19 +46,19 @@ mediaPlayer.prototype.initPlugins = function() {
 }
 
 mediaPlayer.prototype.unmute = function() {
-    this.miVid.muted = false;
+    this.media.muted = false;
 }
 mediaPlayer.prototype.mute = function() {
-    this.miVid.muted = true;
+    this.media.muted = true;
 }
 
 
 
 // mediaPlayer.prototype.muteSound = function() {
-//     if(this.miVid.muted === true) {
-//         this.miVid.unmute();
+//     if(this.media.muted === true) {
+//         this.media.unmute();
 //     } else {
-//         this.miVid.mute();
+//         this.media.mute();
 //     }
 // }
 
