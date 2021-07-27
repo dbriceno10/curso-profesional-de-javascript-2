@@ -39,11 +39,11 @@
 
         try {
           const response = await fetch(url, { signal: controller.signal });
-          const blob = await response.blob();
-          const imgUrl = URL.createObjectURL(blob);
+          const blob = await response.blob();//blob es nuesra imagen pero en forma binaria
+          const imgUrl = URL.createObjectURL(blob);//Tomamos nuestro binario y lo convertimos en una url
           img.src = imgUrl;
         } catch (error) {
-          console.log(error.message);
+          console.error(error.message);
         }
 
         stopLoading();
