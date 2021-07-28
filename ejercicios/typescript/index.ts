@@ -1,5 +1,5 @@
 // Interfaces
-enum Color {
+enum Color {//enum, son un conjunto de valores, indica "los que son", solo podremos asignar los valores que definamos
   Rojo = 'Rojo',
   Verde = 'Verde',
 }
