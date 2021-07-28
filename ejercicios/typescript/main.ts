@@ -1,6 +1,6 @@
 console.log("hello world")
-
-const add = (a: number, b: number) => {
+//Funciones
+const add = (a: number, b: number): number => {
     return a + b
 }
 
@@ -50,3 +50,18 @@ comodin = {
 let someObjet: object = {
     nobre: "Daniel"
 }
+
+function createAdder(a: number): (number) => number {
+    return function(b: number) {
+        return b + a
+    }
+}
+
+const addFour = createAdder(4)
+const fourPlust6 = addFour(6)
+
+function fullName (firstName: string = "Name", lastName?: string) {
+    return `${firstName} ${lastName}`
+}//Con el signo de interrgación en el argumento estamos permitiendo que el mismo pueda ser opcional, ya que puede ser un string o el valor undefined, tambien se le puede hacer tener un valor por defecto en caso de no agregarlo simplemente asignando un valor
+
+const daniel = fullName('Daniel')
