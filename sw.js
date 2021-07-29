@@ -21,15 +21,15 @@ async function precache() {
     const cache = await caches.open(version) //regresa una promesa
     //vamos a pasar una lista con todos nuestros recursos
     return cache.addAll([
-        "/",
-        "/index.html",
-        "/scripts/call.js",
-        "/scripts/mediaPlayer.js",
-        "/scripts/plugins/autoPlay.js",
-        "/scripts/plugins/AutoPause.js",
-        "/styles/style.css",
-        "/styles/normalize.css",
-        "/assets/Shaman_King_OP_2_Latino.mp4"
+        // "/",
+        // "/index.html",
+        // "/scripts/call.js",
+        // "/scripts/mediaPlayer.js",
+        // "/scripts/plugins/autoPlay.js",
+        // "/scripts/plugins/AutoPause.js",
+        // "/styles/style.css",
+        // "/styles/normalize.css",
+        // "/assets/Shaman_King_OP_2_Latino.mp4"
     ])
 }
 

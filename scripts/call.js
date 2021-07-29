@@ -1,6 +1,6 @@
 import mediaPlayer from "./mediaPlayer.js" //Importamos para acá la función mediaPlayer
 import autoPlay from "./plugins/autoPlay.js"
-import autoPause from "./plugins/AutoPause.js"
+import autoPause from "./plugins/AutoPause.ts"
 
 const video = document.querySelector("video");//A querySelector debemos de pasarle un selector (que interactua con el dom) como en este momento en el html solo tenemos una etiqueta video podemos parar el selector video solamente
 const button = document.querySelector("#btn_play");//lo mismo que anteriormente ya que en este momento tenemos un solo botón
