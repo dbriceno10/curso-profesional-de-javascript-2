@@ -3,6 +3,8 @@
 
 //TS nos da la opción de convertir a la sintaxis de clases automáticamente
 class mediaPlayer {
+    media: HTMLMediaElement//La etiqueta video está en uso eso representa un html video element, heredan des esta clase nativa de html
+    plugins: Array<any>;
     constructor(configurar) {
         this.media = configurar.parametro;
         this.plugins = configurar.plugins || []; //En el array vació vamos a pasar todos nuestros plugins, o carácterísticas nuevas que vamos a estar añadiendo al programa
@@ -24,18 +26,19 @@ class mediaPlayer {
             this.media.pause();
         }
     }
-    initPlugins() {
-        const player = {
-            play: () => this.play(),
-            pause: () => this.pause(),
-            media: this.media,
-            get muted() {
-                return this.media.muted;
-            },
-            set muted(value) {
-                this.media.muted = value;
-            }
-        };
+    private initPlugins() {
+        // const player = {
+        //     play: () => this.play(),
+        //     pause: () => this.pause(),
+        //     media: this.media,
+        //     get muted() {
+        //         return this.media.muted;
+        //     },
+        //     set muted(value) {
+        //         this.media.muted = value;
+        //     }
+        // };
+        //Anteriormente habíamos decidido parsarle este player, ahora lo haremos con el this. Con ts
         this.plugins.forEach(plugins => {
             plugins.run(this);
         });
