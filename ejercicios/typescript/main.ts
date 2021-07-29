@@ -65,3 +65,35 @@ function fullName (firstName: string = "Name", lastName?: string) {
 }//Con el signo de interrgación en el argumento estamos permitiendo que el mismo pueda ser opcional, ya que puede ser un string o el valor undefined, tambien se le puede hacer tener un valor por defecto en caso de no agregarlo simplemente asignando un valor
 
 const daniel = fullName('Daniel')
+
+//Interfaces
+// enum Color {
+//     Rojo = "Rojo",
+//     Verde ="Verde"
+// }
+interface Rectangulo {
+    ancho: number
+    alto: number
+    color?: Color
+}
+
+let rect: Rectangulo = {
+    ancho: 4,
+    alto: 6,
+    color: Color.Rojo
+}
+
+const area = (r: Rectangulo) => {
+    return r.alto * r.ancho
+}
+
+const areaRect = area(rect)
+
+console.log(areaRect)
+
+rect.toString = function () {
+    return this.color? `Un Rectángulo ${this.color}` : `Un Rectángulo`
+}
+//NOTA: El this está haciendo referencia a rect
+
+console.log(rect.toString())

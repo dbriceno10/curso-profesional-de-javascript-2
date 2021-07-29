@@ -1,0 +1,3 @@
+Las interfaces nos permite declarar la forma que tiene un objeto, esto es útil para tener autocompletado y evitar algunos errores.
+
+Las interfaces son como un contrato que debe cumplirse, no poedmos añadir propiedades de más o de menos, si una propiedad es opcional hay que marcarlo.
