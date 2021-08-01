@@ -2,22 +2,22 @@ interface Observer {
   update: (data: any) => void;
 }
 
-interface Subject {
-  subscribe: (observer: Observer) => void;
+interface Subject {//Los subjets van a exponer dos funciones, suscribir y desuscribir 
+  subscribe: (observer: Observer) => void;//Recibe un observer, no retorna nada,con void decimos que estamos retornando un undefined
   unsubscribe: (observer: Observer) => void;
 }
 
 class BitcoinPrice implements Subject {
-  observers: Observer[] = [];
+  observers: Observer[] = [];//Lista donde vamos a guardar a los observadores
 
   constructor() {
-    const el: HTMLInputElement = document.querySelector('#value');
+    const el: HTMLInputElement = document.querySelector('#value');//Feferencia al elemento a observar
     el.addEventListener('input', () => {
       this.notify(el.value);
     });
   }
 
-  subscribe(observer: Observer) {
+  subscribe(observer: Observer) {//Recibe un observer y lo añadea una lista de observadores
     this.observers.push(observer);
   }
 

@@ -1,8 +1,11 @@
 class Singleton {
-  private static instance: Singleton;
+  private static instance: Singleton;// instancia que es privada y estática
 
-  private constructor() {
+  private constructor() {//constructor es privado
     // init
+    //Aquí va un tipo de inicialización.
+
+
   }
 
   static getInstance() {

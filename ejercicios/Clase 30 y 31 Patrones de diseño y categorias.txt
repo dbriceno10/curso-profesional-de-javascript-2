@@ -1,0 +1,7 @@
+Categorías de patrones
+Creacionales: Probeen distintas formas de crear a objetos
+
+Patron Singleton (Creacional)
+Es un patrón  que te asegura que una clase tiene una sola instancia, es la unica instancia que puede ser consumida por cualquier otro objeto.
+
+Dicha instancia siempre será la misma.
