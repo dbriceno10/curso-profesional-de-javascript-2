@@ -1,7 +1,7 @@
 import mediaPlayer from "./mediaPlayer" 
 import autoPlay from "./plugins/autoPlay"
 import autoPause from "./plugins/AutoPause"
-import Ads from "./Ads/Ads";
+import Ads from "./plugins/Ads";
 //como estamos en TypeScript al importar los archivos colocar la extensión .ts no es necesario
 
 const video = document.querySelector("video");//A querySelector debemos de pasarle un selector (que interactua con el dom) como en este momento en el html solo tenemos una etiqueta video podemos parar el selector video solamente

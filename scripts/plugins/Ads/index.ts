@@ -1,11 +1,11 @@
-import mediaPlayer from "../mediaPlayer"
+import mediaPlayer from "../../mediaPlayer"
 import Ads, { Ad } from "./Ads"
 
 class AdsPlugin {
     private ads: Ads;
     private player: mediaPlayer;
     private media: HTMLMediaElement;
-    private currentAd: Ads
+    private currentAd: Ad
 
     constructor() {
         this.ads = Ads.getInstance();
