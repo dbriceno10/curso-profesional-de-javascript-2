@@ -1,6 +1,7 @@
 import mediaPlayer from "./mediaPlayer" 
 import autoPlay from "./plugins/autoPlay"
 import autoPause from "./plugins/AutoPause"
+import Ads from "./Ads/Ads";
 //como estamos en TypeScript al importar los archivos colocar la extensión .ts no es necesario
 
 const video = document.querySelector("video");//A querySelector debemos de pasarle un selector (que interactua con el dom) como en este momento en el html solo tenemos una etiqueta video podemos parar el selector video solamente
@@ -8,7 +9,7 @@ const button: HTMLElement = document.querySelector("#btn_play");//lo mismo que a
 const btn_Mute: HTMLElement = document.querySelector("#btn_mute");
 const player = new mediaPlayer({
     parametro: video,
-    plugins: [new autoPlay(), new autoPause() ],
+    plugins: [new autoPlay(), new autoPause(), new Ads() ],
 });
 //new autoPlay()] });//pasamos un objeto de configuracion, plaer es un nuevo elemento de mi clase mediaPlayer y contiene todos los métodos y propiedades de la misma
 button.onclick = () => player.play();
